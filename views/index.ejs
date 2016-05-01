@@ -24,7 +24,7 @@
                 <h1 class="question">
                     rhiros starred repos
                 </h1> 
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <select id="order-by">
                       <option value=""selected>Choose your option</option>
                       <option value="name">Name</option>
@@ -32,6 +32,10 @@
                       <option value="open_issues_count">Open Issues</option>
                     </select>
                     <label>Order by</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="filter-by" type="text">
+                    <label for="filter-by">Filter by language</label>
                 </div>
                 <div id="starred-cards" data-template="#card-template">
                 </div>
@@ -46,7 +50,7 @@
         <script type="text/javascript" src="/javascripts/starred.js"></script>
 
         <script id="card-template"  type="x-tmpl-mustache">
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4" data-filtered="{{filtered}}">
                 <div class="card text-left">
 
                     <div class="card-content blue-grey  white-text">
@@ -60,7 +64,7 @@
                             <span class="description" title="{{description}}">
                                 {{description}}
                             </span>
-                            <i class="devicon-{{language}}-plain"></i>
+                            <i class="devicon-{{languageIcon}}-plain"></i> <small>{{language}}</small>
                         </div>
                     </div>
                     <div class="card-content">

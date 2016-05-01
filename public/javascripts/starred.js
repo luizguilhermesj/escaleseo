@@ -30,9 +30,9 @@
 
     Starred.prototype.fetchEnded = function(data){
         for (var i=0; i<data.length; i++) {
-            data[i].language = data[i].language.toLowerCase().replace(/\+/g,'plus');
-            data[i].language = data[i].language.replace(/\#/g,'sharp');
-            data[i].language = (data[i].language == 'html') ? 'html5' : data[i].language;
+            data[i].languageIcon = data[i].language.toLowerCase().replace(/\+/g,'plus');
+            data[i].languageIcon = data[i].languageIcon.replace(/\#/g,'sharp');
+            data[i].languageIcon = (data[i].languageIcon == 'html') ? 'html5' : data[i].languageIcon;
         }
         this.repos = data;
         this.$element.trigger('starred.repos-updated');
@@ -51,9 +51,21 @@
 
     Starred.prototype.reorder = function(orderCriteria) {
         this.repos.sort(function(a, b){
+            if (typeof a[orderCriteria] == 'string') {
+                return a[orderCriteria].toLowerCase().localeCompare(b[orderCriteria].toLowerCase());
+            }
             if (a[orderCriteria] < b[orderCriteria]) return -1;
             if (a[orderCriteria] > b[orderCriteria]) return 1;
             return 0;
+        })
+
+        this.$element.trigger('starred.repos-updated');
+    };
+
+    Starred.prototype.filter = function(filterCriteria) {
+        this.repos = this.repos.map(function(obj){
+            obj.filtered = (obj.language.toLowerCase().indexOf(filterCriteria.toLowerCase()) < 0);
+            return obj;
         })
 
         this.$element.trigger('starred.repos-updated');

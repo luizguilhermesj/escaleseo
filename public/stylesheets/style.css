@@ -22,3 +22,6 @@
 .caret {
     border: none;
 }
+[data-filtered="true"] {
+    display: none;
+}
