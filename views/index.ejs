@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
         <link rel="stylesheet" href="/stylesheets/style.css">
     </head>
     <body>
@@ -20,7 +22,7 @@
         <div class="container">
             <div class="row text-center question-container">
                 <h1 class="question">
-                    Starred
+                    rhiros starred repos
                 </h1> 
                 <div id="starred-repos">
                 </div>
@@ -48,12 +50,13 @@
                             <span class="description" title="{{description}}">
                                 {{description}}
                             </span>
-                            Language: <strong>{{language}}</strong>
+                            <i class="devicon-{{language}}-plain"></i>
                         </div>
                     </div>
                     <div class="card-content">
-                        Stargazers: {{stargazers_count}}<br>
-                        Open Issues: {{open_issues_count}}
+                        <span title="Stargazers"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{stargazers_count}}</span>
+                        <br>
+                        <span title="Open Issues"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{open_issues_count}}</span>
                         <br><br>
                         Created at: {{created_at}}<br>
                         Last pushed at: {{pushed_at}}

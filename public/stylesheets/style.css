@@ -14,3 +14,7 @@
     color: white !important;
     text-decoration: none !important;
 }
+
+[class^=devicon-] {
+    font-size: 30px;
+}
