@@ -15,6 +15,16 @@
     text-decoration: none !important;
 }
 
+.card-head {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card-middle {
+    min-height: 150px;
+}
+
 [class^=devicon-] {
     font-size: 30px;
 }

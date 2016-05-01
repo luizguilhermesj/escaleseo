@@ -33,6 +33,10 @@
             data[i].languageIcon = data[i].language.toLowerCase().replace(/\+/g,'plus');
             data[i].languageIcon = data[i].languageIcon.replace(/\#/g,'sharp');
             data[i].languageIcon = (data[i].languageIcon == 'html') ? 'html5' : data[i].languageIcon;
+
+            data[i].created_at = $.format.date(data[i].created_at, "dd/MM/yyyy HH:mm");
+            data[i].pushed_at = $.format.date(data[i].pushed_at, "dd/MM/yyyy HH:mm");
+
         }
         this.repos = data;
         this.$element.trigger('starred.repos-updated');

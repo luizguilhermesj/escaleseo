@@ -46,6 +46,8 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
+        
         <script type="text/javascript" src="/javascripts/main.js"></script>
         <script type="text/javascript" src="/javascripts/starred.js"></script>
 
@@ -53,10 +55,10 @@
             <div class="col-md-6 col-lg-4" data-filtered="{{filtered}}">
                 <div class="card text-left">
 
-                    <div class="card-content blue-grey  white-text">
+                    <div class="card-content blue-grey  white-text card-head">
                         <span class="card-title"><a href="{{html_url}}">{{name}}</a></span>
                     </div>
-                    <div class="card-content blue-grey lighten-5 clearfix">
+                    <div class="card-content blue-grey lighten-5 clearfix card-middle">
                         <div class="col-md-4 nopadding">
                             <img class="img-responsive" src="{{owner.avatar_url}}">
                         </div>
@@ -68,12 +70,21 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <span title="Stargazers"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{stargazers_count}}</span>
+                        <p>
+                            <span title="Stargazers">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{stargazers_count}}</span>
+                            <br>
+                            <span title="Open Issues"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{open_issues_count}}</span>
+                        </p>
                         <br>
-                        <span title="Open Issues"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> {{open_issues_count}}</span>
-                        <br><br>
-                        Created at: {{created_at}}<br>
-                        Last pushed at: {{pushed_at}}
+                        <p>
+                            <div>
+                                Created at: <span class="badge white">{{created_at}}</span>
+                            </div>
+                            <div>
+                                Last pushed at: <span class="badge white">{{pushed_at}}</span>
+                            </div>
+                        </p>
                     </div>
                 </div>
             </div>
