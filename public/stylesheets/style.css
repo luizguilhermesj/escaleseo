@@ -1,0 +1,16 @@
+.nopadding {
+    padding:0;
+}
+
+.description {
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+}
+
+.card-title a {
+    color: white !important;
+    text-decoration: none !important;
+}
