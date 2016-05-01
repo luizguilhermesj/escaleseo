@@ -24,7 +24,16 @@
                 <h1 class="question">
                     rhiros starred repos
                 </h1> 
-                <div id="starred-repos">
+                <div class="input-field col s12">
+                    <select id="order-by">
+                      <option value=""selected>Choose your option</option>
+                      <option value="name">Name</option>
+                      <option value="stargazers_count">Stargazers</option>
+                      <option value="open_issues_count">Open Issues</option>
+                    </select>
+                    <label>Order by</label>
+                </div>
+                <div id="starred-cards" data-template="#card-template">
                 </div>
             </div>
         </div>
@@ -34,6 +43,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
         <script type="text/javascript" src="/javascripts/main.js"></script>
+        <script type="text/javascript" src="/javascripts/starred.js"></script>
 
         <script id="card-template"  type="x-tmpl-mustache">
             <div class="col-md-6 col-lg-4">

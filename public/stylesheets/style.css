@@ -18,3 +18,7 @@
 [class^=devicon-] {
     font-size: 30px;
 }
+
+.caret {
+    border: none;
+}
