@@ -19,12 +19,13 @@
         if (!this.options.template) {
             throw new Error("data-template must be defined as an attribute with the css selector for the template");
         }
-        this.template = $('#card-template').html();
+        this.template = $(this.options.template).html();
         Mustache.parse(this.template);   // optional, speeds up future uses
         this.fetch();
     };
 
     Starred.prototype.updateUser = function(newUser) {
+        if (this.options.user == newUser) return;
         this.options.user = newUser;
         this.fetch();
     };
@@ -63,6 +64,7 @@
         }
         this.repos = data;
         this.$element.trigger('starred.repos-updated');
+        Materialize.toast('Starred repos loaded!', 4000, 'green');
     };
 
     Starred.prototype.render = function() {
@@ -72,7 +74,6 @@
             rendered += Mustache.render(this.template, this.repos[i]);
         }
 
-        Materialize.toast('Starred repos loaded!', 4000, 'green');
         this.$element.html(rendered);
     };
 
