@@ -35,3 +35,16 @@
 [data-filtered="true"] {
     display: none;
 }
+
+.username {
+    outline: none !important;
+    border: none;
+    padding: 0;
+    width: 170px;
+}
+
+.modal-content {
+    border: none;
+    background: none;
+    border-radius: 0;
+}

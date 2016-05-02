@@ -22,22 +22,45 @@
         <div class="container">
             <div class="row text-center question-container">
                 <h1 class="question">
-                    rhiros starred repos
+                    <input 
+                    data-starred-user 
+                    type 
+                    class="indigo-text username tooltipped" 
+                    value="rhiros" 
+                    data-position="bottom" 
+                    data-delay="50"
+                    data-tooltip="Type your username here">
+                    </input> starred repos
                 </h1> 
-                <div class="input-field col s6">
-                    <select id="order-by">
-                      <option value=""selected>Choose your option</option>
-                      <option value="name">Name</option>
-                      <option value="stargazers_count">Stargazers</option>
-                      <option value="open_issues_count">Open Issues</option>
-                    </select>
-                    <label>Order by</label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select id="order-by">
+                          <option value=""selected>Choose your option</option>
+                          <option value="name">Name</option>
+                          <option value="stargazers_count">Stargazers</option>
+                          <option value="open_issues_count">Open Issues</option>
+                        </select>
+                        <label>Order by</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="filter-by" type="text">
+                        <label for="filter-by">Filter by language</label>
+                    </div>  
                 </div>
-                <div class="input-field col s6">
-                    <input id="filter-by" type="text">
-                    <label for="filter-by">Filter by language</label>
-                </div>
-                <div id="starred-cards" data-template="#card-template">
+                <div class="row">
+                    <div id="starred-cards" data-template="#card-template">
+                      <div class="preloader-wrapper big active">
+                        <div class="spinner-layer spinner-blue-only">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,6 +70,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.1/js.cookie.min.js"></script>
         
         <script type="text/javascript" src="/javascripts/main.js"></script>
         <script type="text/javascript" src="/javascripts/starred.js"></script>
@@ -89,6 +113,16 @@
                 </div>
             </div>
         </script>
+        <div id="login-modal" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4>OOOOOpss =[</h4>
+                <p>It looks like you reached Github api requests limit.</p>
+                <p>Login and authorize this app to continue using it!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://github.com/login/oauth/authorize?client_id=ae2404b9bbc55d36c197" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="devicon-github-plain"></i> Login</a>
+            </div>
+        </div>
 
     </body>
 </html>
