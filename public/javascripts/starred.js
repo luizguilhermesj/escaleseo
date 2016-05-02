@@ -45,7 +45,7 @@
             $('#login-modal').openModal();
         }
         if (data.status == 404) {
-            Materialize.toast('Username '+this.options.user+' does not exists.', 4000, 'red');
+            Materialize.toast('Username '+this.options.user+' does not exist.', 4000, 'red');
         }
     };
 
@@ -63,7 +63,6 @@
         }
         this.repos = data;
         this.$element.trigger('starred.repos-updated');
-
     };
 
     Starred.prototype.render = function() {
@@ -73,6 +72,7 @@
             rendered += Mustache.render(this.template, this.repos[i]);
         }
 
+        Materialize.toast('Starred repos loaded!', 4000, 'green');
         this.$element.html(rendered);
     };
 
